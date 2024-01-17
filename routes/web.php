@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SoinsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('master');
 });
-Route::get('/register', function () {
-    return view('layout.register');
+
+
+Route::controller(ClientController::class)->group(function(){
+    Route::get('/Dashboard' , 'index') ->name('index');
+    Route::get('/register' , 'create') ->name('create');
+    Route::post('/register' , 'store') ->name('register.store');
+    Route::post('/clientupdate' , 'edit') ->name('register.edit');
 });
-Route::get('/Dashboard', function () {
-    return view('layout.dashboard');
+
+Route::controller(SoinsController::class)->group(function(){
+
+    Route::get('/register_soins' , 'create') ->name('create');
+    Route::post('/register_soins' , 'store') ->name('soin.store');
+
 });

@@ -1,14 +1,5 @@
 <div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Sales chart -->
-    <!-- ============================================================== -->
 
-    <!-- ============================================================== -->
-    <!-- Sales chart -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Table -->
-    <!-- ============================================================== -->
     <div class="row">
         <!-- column -->
         <div class="col-12">
@@ -44,53 +35,48 @@
                                 <th class="border-top-0">Soins</th>
                                 <th class="border-top-0">Telephone</th>
                                 <th class="border-top-0">Prix</th>
+                                <th class="border-top-0">Action</th>
                             </tr>
                         </thead>
+
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="m-r-10"><a class="btn btn-circle btn-info text-white">MN</a></div>
-                                        <div class="">
-                                            <h4 class="m-b-0 font-16">Mouhamed NDIAYE</h4>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Parcelles Assainies</td>
-                                <td>11 ans</td>
-                                <td>
-                                   M
-                                </td>
-                                <td>Consultation</td>
-                                <td>778429979</td>
-                                <td>
-                                    <h5 class="m-b-0">12000 XOF</h5>
-                                </td>
-                            </tr>
+                            @foreach ($Clients as $Client)
 
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <div class="m-r-10"><a class="btn btn-circle btn-info text-white">MN</a></div>
                                         <div class="">
-                                            <h4 class="m-b-0 font-16">Mouhamed NDIAYE</h4>
+                                            <h4 class="m-b-0 font-16">{{$Client -> nom}}</h4>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Parcelles Assainies</td>
-                                <td>11 ans</td>
+                                <td>{{$Client -> adresse}}</td>
+                                <td> {{$Client -> age}} ans</td>
                                 <td>
-                                   M
+                                    {{$Client -> genre}}
                                 </td>
-                                <td>Consultation</td>
-                                <td>778429979</td>
+                                <td>{{$Client -> soin}}</td>
+                                <td>{{$Client -> numero}}</td>
                                 <td>
-                                    <h5 class="m-b-0">12000 XOF</h5>
+                                    <h5 class="m-b-0">{{$Client -> prix}} XOF</h5>
                                 </td>
+                                <td>
+
+                                    <a href={{route('register.edit')}} class="btn btn-success">Modifier</a>
+
+                                    <a href="" class="btn btn-danger">Supprimer</a>
+
+                                </td>
+
+
+
                             </tr>
+
+                            @endforeach
 
 
                         </tbody>
+
                     </table>
                 </div>
             </div>
