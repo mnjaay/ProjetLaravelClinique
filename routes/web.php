@@ -25,6 +25,7 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/register' , 'create') ->name('create');
     Route::post('/register' , 'store') ->name('register.store');
     Route::post('/clientupdate' , 'edit') ->name('register.edit');
+    Route::delete('/client/{id}', 'destroy')->name('client.destroy');
 });
 
 Route::controller(SoinsController::class)->group(function(){

@@ -71,10 +71,10 @@ class ClientController extends Controller
     {
         $validated =$request->validated();
 
-        $Clients->update($validated);
+{  /*      $Clients->update($validated);
 
         return redirect()->route('layout.dashboard')
-            ->with('success', "modifié avec succès !");
+->with('success', "modifié avec succès !");*/}
     }
 
     /**
@@ -83,5 +83,9 @@ class ClientController extends Controller
     public function destroy(string $id)
     {
         //
+        $client = ClientModele::findOrFail($id);
+        $client->delete();
+
+        return redirect()->route('index')->with('success', 'Client supprimé avec succès');
     }
 }

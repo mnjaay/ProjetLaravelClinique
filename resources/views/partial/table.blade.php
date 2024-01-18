@@ -64,8 +64,11 @@
 
                                     <a href={{route('register.edit')}} class="btn btn-success">Modifier</a>
 
-                                    <a href="" class="btn btn-danger">Supprimer</a>
-
+                                    <form action="{{ route('client.destroy', $Client->id) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Supprimer</button>
+                                    </form>
                                 </td>
 
 
