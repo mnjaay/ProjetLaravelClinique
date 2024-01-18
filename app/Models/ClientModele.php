@@ -16,4 +16,9 @@ class ClientModele extends Model
         'soin',
         'numero',
     ];
+
+    public function soin    () : BelongsTo
+    {
+        return $this->belongsTo(SoinsModele::class);
+    }
 }

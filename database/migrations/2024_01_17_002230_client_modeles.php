@@ -21,6 +21,11 @@ return new class extends Migration
             $table->string('soin');
             $table->integer('numero');
 
+             //clé étrangère
+             $table->unsignedBigInteger('_id');
+             $table->foreign('category_id')
+                     ->references('id')->on('categories');
+
 
             $table->timestamps();
         });

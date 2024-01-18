@@ -24,7 +24,8 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/Dashboard' , 'index') ->name('index');
     Route::get('/register' , 'create') ->name('create');
     Route::post('/register' , 'store') ->name('register.store');
-    Route::post('/clientupdate' , 'edit') ->name('register.edit');
+    Route::get('/clientupdate/{id}' , 'edit') ->name('client.edit');
+    Route::put('/clientupdate/{id}' , 'update') ->name('client.update');
     Route::delete('/client/{id}', 'destroy')->name('client.destroy');
 });
 

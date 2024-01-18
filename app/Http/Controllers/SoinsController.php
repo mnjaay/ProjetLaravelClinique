@@ -14,7 +14,7 @@ class SoinsController extends Controller
      */
     public function index()
     {
-         return redirect('/layout/dashboard');
+        return view('layout/dashboard');
 
     }
 
@@ -42,6 +42,7 @@ class SoinsController extends Controller
 
          SoinsModele::create($validated);
 
+         return redirect()->route('index')->with('success', 'Modifié avec succès !');
 
     }
 

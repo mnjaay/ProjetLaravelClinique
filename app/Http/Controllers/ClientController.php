@@ -61,7 +61,10 @@ class ClientController extends Controller
     public function edit(string $id)
     {
         //
-        return view('client.edit');
+        $Client = ClientModele::find($id);
+
+
+        return view('client.edit',compact('Client'));
     }
 
     /**
@@ -69,12 +72,22 @@ class ClientController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $validated =$request->validated();
+        $validated = $request->validate([
+            'nom' => 'required|max:255',
+            'adresse' => 'required|max:255',
+            'age' => 'required|max:255',
+            'genre' => 'required|max:255',
+            'soin' => 'required|max:255',
+            'numero' => 'required|max:255',
+        ]);
 
-{  /*      $Clients->update($validated);
+        $client = ClientModele::findOrFail($id);
 
-        return redirect()->route('layout.dashboard')
-->with('success', "modifié avec succès !");*/}
+
+        $client->update($validated);
+
+        return redirect()->route('index')->with('success', 'Modifié avec succès !');
+
     }
 
     /**
@@ -83,9 +96,9 @@ class ClientController extends Controller
     public function destroy(string $id)
     {
         //
-        $client = ClientModele::findOrFail($id);
-        $client->delete();
+        $Client = ClientModele::findOrFail($id);
+        $Client->delete();
 
-        return redirect()->route('index')->with('success', 'Client supprimé avec succès');
+        return redirect()->route('index')->with('Success','Client Supprimer');
     }
 }
