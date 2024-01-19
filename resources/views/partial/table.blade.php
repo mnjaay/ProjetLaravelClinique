@@ -48,10 +48,10 @@
                                         <td>
                                             {{$Client -> genre}}
                                         </td>
-                                        <td>{{$Client -> soin}}</td>
+                                        <td>{{$Client -> soin->nom}}</td>
                                         <td>{{$Client -> numero}}</td>
                                         <td>
-                                            <h5 class="m-b-0">{{$Client -> prix}} XOF</h5>
+                                            <h5 class="m-b-0">{{$Client -> soin->price}} XOF</h5>
                                         </td>
                                         <td>
 

@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('adresse');
             $table->integer('age');
             $table->string('genre');
-            $table->string('soin');
+
             $table->integer('numero');
 
              //clé étrangère
-             $table->unsignedBigInteger('_id');
-             $table->foreign('category_id')
-                     ->references('id')->on('categories');
+             $table->unsignedBigInteger('soin_id');
+             $table->foreign('soin_id')
+                     ->references('id')->on('SoinsModele');
 
 
             $table->timestamps();

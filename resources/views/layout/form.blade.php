@@ -36,7 +36,7 @@
              <option>@isset($Client->genre)
                 {{$Client->genre}}
                 @endisset</option>
-                
+
             <option>Masculin</option>
             <option>Feminin</option>
 
@@ -46,16 +46,29 @@
 <div class="form-group">
     <label class="col-md-12">Soins</label>
     <div class="col-md-12">
-        <select name="soin"
-        value="@isset($Client->soin)
-        {{$Client->soin}}
-        @endisset" class="form-control form-control-line">
-            <option>Consultation</option>
-            <option>Blanchissement Dent</option>
-            <option>Usa</option>
-            <option>Canada</option>
-            <option>Thailand</option>
+        <select name="soin_id" id="">
+
+            @if (isset($Client->soin_id))
+            <option value="{{ $Client->soin_id}}" >
+                {{ $Client->soin->nom }}
+            </option>
+            @endif
+            @foreach ( $Soins as $Soin )
+            @if (isset($Client->soin_id))
+                @if ($Client->soin_id != $Soin->id)
+                <option value="{{ $Soin->id }}">
+                    {{ $Soin->nom }}
+                </option>
+                @endif
+                @else
+                <option value="{{ $Soin->id }}">
+                    {{ $Soin->nom }}
+                </option>
+            @endif
+            @endforeach
+
         </select>
+
     </div>
 </div>
 <div class="form-group">
