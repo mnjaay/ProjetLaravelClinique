@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SoinsController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,12 @@ use App\Http\Controllers\SoinsController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::controller(LoginController::class)->group(function(){
+    Route::get('/login' , 'show') ->name('login');
+    Route::post('/login', 'login');
+});
 
 Route::get('/', function () {
     return view('master');
@@ -36,5 +43,6 @@ Route::controller(SoinsController::class)->group(function(){
     Route::post('/register_soins' , 'store') ->name('soin.store');
 
 });
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 
