@@ -5,29 +5,30 @@
 <div class="container">
     <h1 class="text-center">Dossier Medicale</h1><br><br>
     <table class="table">
+
         <tr>
             <th>Nom</th>
-            <td>kebe</td>
+            <td>{{$Client->nom}}</td>
         </tr>
         <tr>
             <th>adresse</th>
-            <td>dakar</td>
+            <td>{{$Client->adresse}}</td>
         </tr>
         <tr>
             <th>Age</th>
-            <td>222ans</td>
+            <td>{{$Client->age}}</td>
         </tr>
         <tr>
             <th>Genre</th>
-            <td>masculin</td>
+            <td>{{$Client->genre}}</td>
         </tr>
         <tr>
             <th>Soins</th>
-            <td>Traitement des caries</td>
+            <td>{{$Client->soin->nom}}</td>
         </tr>
         <tr>
             <th>Téléphone</th>
-            <td>889</td>
+            <td>{{$Client->numero}}</td>
         </tr>
         <tr>
             <th>Traitement</th>

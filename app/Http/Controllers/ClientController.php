@@ -105,4 +105,13 @@ class ClientController extends Controller
 
         return redirect()->route('index')->with('Success','Client Supprimer');
     }
+
+    public function detailClient(string $id)
+    {
+        $Client = ClientModele::find($id);
+        $Soins = SoinsModele::all();
+
+
+        return view('client.detailclient',compact('Client','Soins'));
+    }
 }

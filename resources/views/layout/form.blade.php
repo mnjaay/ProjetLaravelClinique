@@ -46,7 +46,7 @@
 <div class="form-group">
     <label class="col-md-12">Soins</label>
     <div class="col-md-12">
-        <select name="soin_id" id="">
+        <select name="soin_id" id="" class="form-control form-control-line">
 
             @if (isset($Client->soin_id))
             <option value="{{ $Client->soin_id}}" >
@@ -77,6 +77,6 @@
         <input type="text"
         value="@isset($Client->numero)
         {{$Client->numero}}
-        @endisset" placeholder="123 456 7890" name="numero" class="form-control form-control-line">
+        @endisset" placeholder="77 000 00 00" name="numero" class="form-control form-control-line">
     </div>
 </div>

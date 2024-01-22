@@ -27,7 +27,7 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/clientupdate/{id}' , 'edit') ->name('client.edit');
     Route::put('/clientupdate/{id}' , 'update') ->name('client.update');
     Route::delete('/client/{id}', 'destroy')->name('client.destroy');
-    Route::get('/detailclient', 'show')->name('client.detailclient');
+    Route::get('/detailclient/{id}', 'detailClient')->name('client.detailclient');
 });
 
 Route::controller(SoinsController::class)->group(function(){
