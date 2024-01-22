@@ -1,3 +1,3 @@
 <footer class="footer text-center">
-    All Rights Reserved by Xtreme Admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+    © 2023 rights reserved.
 </footer>
