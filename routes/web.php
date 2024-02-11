@@ -22,13 +22,11 @@ Route::controller(LoginController::class)->group(function(){
     Route::post('/login', 'login');
 });
 
-Route::get('/', function () {
-    return view('master');
-});
+
 
 
 Route::controller(ClientController::class)->group(function(){
-    Route::get('/Dashboard' , 'index') ->name('index');
+    Route::get('/' , 'index') ->name('index');
     Route::get('/register' , 'create') ->name('create');
     Route::post('/register' , 'store') ->name('register.store');
     Route::get('/clientupdate/{id}' , 'edit') ->name('client.edit');
